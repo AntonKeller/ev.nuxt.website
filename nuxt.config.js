@@ -3,7 +3,7 @@ export default {
   target: 'static',
 
   router: {
-    base: '/ev_nuxtjs_website_page-1/'
+    base: '/ev_nuxtjs_website/'
   },
 
   // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
