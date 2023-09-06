@@ -3,76 +3,76 @@
   <div class="main-container">
 
     <!--  БЛОК 1  -->
-    <div class="content-container-1">
+<!--    <div class="content-container-1">-->
 
-      <!--  ЗАГОЛОВОК С КНОПКОЙ  -->
-      <!--      class="flex flex-col text-center items-center mt-3 lg:flex-row lg:justify-around md:items-start md:text-left"-->
-      <div class="flex flex-col items-center lg:flex-row lg:items-start lg:justify-around">
+<!--      &lt;!&ndash;  ЗАГОЛОВОК С КНОПКОЙ  &ndash;&gt;-->
+<!--      &lt;!&ndash;      class="flex flex-col text-center items-center mt-3 lg:flex-row lg:justify-around md:items-start md:text-left"&ndash;&gt;-->
+<!--      <div class="flex flex-col items-center lg:flex-row lg:items-start lg:justify-around">-->
 
-        <div class="w-full lg:w-5/12 text-center text-gray-800 font-extrabold flex flex-col justify-start mt-8 lg:mt-0">
-          <h1 class="txt-shadow text-gray-50 text-2xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl">
-            Эверест Консалтинг
-          </h1>
-          <div>
-            <h2 class="txt-shadow text-base sm:text-lg md:text-xl lg:text-2xl mt-2 sm:mt-4 text-gray-100">
-              Работаем с 2010 года
-            </h2>
-            <button
-              class="text-sm sm:text-lg md:text-xl active:scale-[98%] bg-gray-50 hover:opacity-75 mt-4 sm:mt-6 transition-all duration-100 px-6 py-2 border-2 sm:border-4 border-gray-900/75 rounded-xl">
-              Связаться с нами
-            </button>
-          </div>
-        </div>
+<!--        <div class="w-full lg:w-5/12 text-center text-gray-800 font-extrabold flex flex-col justify-start mt-8 lg:mt-0">-->
+<!--          <h1 class="txt-shadow text-gray-50 text-2xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl">-->
+<!--            Эверест Консалтинг-->
+<!--          </h1>-->
+<!--          <div>-->
+<!--            <h2 class="txt-shadow text-base sm:text-lg md:text-xl lg:text-2xl mt-2 sm:mt-4 text-gray-100">-->
+<!--              Работаем с 2010 года-->
+<!--            </h2>-->
+<!--            <button-->
+<!--              class="text-sm sm:text-lg md:text-xl active:scale-[98%] bg-gray-50 hover:opacity-75 mt-4 sm:mt-6 transition-all duration-100 px-6 py-2 border-2 sm:border-4 border-gray-900/75 rounded-xl">-->
+<!--              Связаться с нами-->
+<!--            </button>-->
+<!--          </div>-->
+<!--        </div>-->
 
-        <!--  https://www.jsdelivr.com/package/npm/vue-carousel-v2  -->
-        <carousel
-          pagination-padding=6
-          paginationColor="rgb(243 244 246)"
-          paginationActiveColor="rgb(220 38 38)"
-          autoplay autoplay-timeout=4000
-          :per-page="1"
-          :mouse-drag="false"
-          class="text-gray-100 w-full max-w-[850px] lg:w-6/12 mt-8 lg:mt-0"
-        >
-          <slide
-            v-for="infoBannerContentCard of infoBannerContentCards"
-            :key="infoBannerContentCard.id"
-            class="text-center lg:text-left border-b border-b-gray-400/50 pb-2"
-          >
-            <h3 class="text-lg md:text-xl font-medium mt-2 lg:mt-0">
-              {{ infoBannerContentCard.title }}
-            </h3>
-            <p class="text-sm md:text-base sm:mt-3 font-light mt-2.5">
-              {{ infoBannerContentCard.description }}
-            </p>
-          </slide>
-        </carousel>
+<!--        &lt;!&ndash;  https://www.jsdelivr.com/package/npm/vue-carousel-v2  &ndash;&gt;-->
+<!--        <carousel-->
+<!--          pagination-padding=6-->
+<!--          paginationColor="rgb(243 244 246)"-->
+<!--          paginationActiveColor="rgb(220 38 38)"-->
+<!--          autoplay autoplay-timeout=4000-->
+<!--          :per-page="1"-->
+<!--          :mouse-drag="false"-->
+<!--          class="text-gray-100 w-full max-w-[850px] lg:w-6/12 mt-8 lg:mt-0"-->
+<!--        >-->
+<!--          <slide-->
+<!--            v-for="infoBannerContentCard of infoBannerContentCards"-->
+<!--            :key="infoBannerContentCard.id"-->
+<!--            class="text-center lg:text-left border-b border-b-gray-400/50 pb-2"-->
+<!--          >-->
+<!--            <h3 class="text-lg md:text-xl font-medium mt-2 lg:mt-0">-->
+<!--              {{ infoBannerContentCard.title }}-->
+<!--            </h3>-->
+<!--            <p class="text-sm md:text-base sm:mt-3 font-light mt-2.5">-->
+<!--              {{ infoBannerContentCard.description }}-->
+<!--            </p>-->
+<!--          </slide>-->
+<!--        </carousel>-->
 
-      </div>
+<!--      </div>-->
 
-      <!--RATING-->
-      <div
-        class="flex flex-col gap-3 md:gap-6 lg:gap-8 xl:gap-12 items-center sm:flex-row sm:justify-between md:justify-evenly mt-5 pb-4 md:pb-6">
+<!--      &lt;!&ndash;RATING&ndash;&gt;-->
+<!--      <div-->
+<!--        class="flex flex-col gap-3 md:gap-6 lg:gap-8 xl:gap-12 items-center sm:flex-row sm:justify-between md:justify-evenly mt-5 pb-4 md:pb-6">-->
 
-        <div
-          v-for="ratingCard of ratingCards"
-          class="text-center flex flex-col w-full sm:w-[26vw] md:w-5/12 lg:max-w-[500px]"
-        >
-          <div
-            class="text-4xl sm:text-5xl md:text-6xl xl:text-7xl  sm:mt-4 md:mt-5 xl:mt-5  font-extrabold  text-gray-50">
-            {{ ratingCard.title }}
-          </div>
-          <div class="text-base sm:text-lg md:text-xl xl:text-2xl   sm:mt-3  font-bold text-red-400">
-            {{ ratingCard.sTitle }}
-          </div>
-          <div class="text-sm md:text-base sm:mt-3 font-light text-gray-100">
-            {{ ratingCard.description }}
-          </div>
-        </div>
+<!--        <div-->
+<!--          v-for="ratingCard of ratingCards"-->
+<!--          class="text-center flex flex-col w-full sm:w-[26vw] md:w-5/12 lg:max-w-[500px]"-->
+<!--        >-->
+<!--          <div-->
+<!--            class="text-4xl sm:text-5xl md:text-6xl xl:text-7xl  sm:mt-4 md:mt-5 xl:mt-5  font-extrabold  text-gray-50">-->
+<!--            {{ ratingCard.title }}-->
+<!--          </div>-->
+<!--          <div class="text-base sm:text-lg md:text-xl xl:text-2xl   sm:mt-3  font-bold text-red-400">-->
+<!--            {{ ratingCard.sTitle }}-->
+<!--          </div>-->
+<!--          <div class="text-sm md:text-base sm:mt-3 font-light text-gray-100">-->
+<!--            {{ ratingCard.description }}-->
+<!--          </div>-->
+<!--        </div>-->
 
-      </div>
+<!--      </div>-->
 
-    </div>
+<!--    </div>-->
 
 
     <!--    БЛОК 2-->
@@ -109,13 +109,13 @@
         </div>
       </div>
 
-      <div class="flex flex-wrap gap-4 justify-center md:gap-y-6 md:gap-x-2 md:justify-evenly bg-gray-800">
+      <div class="flex flex-wrap gap-4 items-stretch justify-center md:gap-y-6 md:gap-x-2 md:justify-center bg-gray-900">
         <div
           v-for="customerCompany of customerCompanyGroup"
           class="hidden md:block sm:w-[45.333%] md:w-[31.333%] lg:w-[31.333%] xl:w-[22.333%] bg-transparent px-1.5 hover:bg-gray-900 border border-dashed border-gray-50"
         >
           <div class="p-2">
-            <img class="object-fill m-0 w-full object-contain"
+            <img class="object-fill mx-auto w-full object-contain w-[13rem]"
                  :src="require(`./../assets/experience_logotypes/${customerCompany.img}.png`)" alt="err">
           </div>
 
@@ -322,7 +322,8 @@ export default {
   @apply border-x-8 border-t-8 border-gray-100;
   /**/
   background-blend-mode: multiply;
-  background: rgba(180, 44, 56, 0.85) top / cover no-repeat fixed url("@/assets/background/main_page/ev-bg-mauntain.jpg");
+  /*background: rgba(180, 44, 56, 0.85) top / cover no-repeat fixed url("@/assets/background/main_page/ev-bg-mauntain.jpg");*/
+  background: rgba(180, 44, 56, 0.9) top / cover no-repeat fixed url("@/assets/background/main_page/bg-everest.jpg");
 }
 
 .content-container-2 {
