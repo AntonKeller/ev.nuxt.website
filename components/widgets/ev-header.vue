@@ -20,17 +20,12 @@
             <NuxtLink :to="link.url">
               <h5
                 :class="{'text-red-600': activePage === link.id}"
-                class="sm:text-xs md:text-sm lg:text-base font-bold">{{ link.title }}</h5>
+                class="text-base font-bold">{{ link.title }}</h5>
               <!--<p class="hidden md:block sm:text-xs md:text-sm lg:text-base ">{{ link.description }}</p>-->
             </NuxtLink>
           </li>
         </ul>
       </nav>
-
-      <!--      <div class="text-gray-300 sm:hidden text-sm">-->
-      <!--        <img class="inline w-4 h-4 mr-1.5" src="../../assets/icons/phone-icon.png" alt="no img">-->
-      <!--        <span class="font-extrabold">+7 (951) 696-21-21</span>-->
-      <!--      </div>-->
 
       <div @click="menuIsOpen=!menuIsOpen" class="ml-auto block sm:hidden flex items-center">
         <svg class=" cursor-pointer w-10 h-10 sm:ml-4 text-gray-200" xmlns="http://www.w3.org/2000/svg" fill="none"
@@ -41,7 +36,7 @@
 
     </div>
 
-    <div v-if="menuIsOpen" class="sm:hidden bg-transparent mt-1.5 pt-1 border-t border-t-gray-800/25">
+    <div v-if="menuIsOpen" class="sm:hidden bg-transparent mt-4 pt-1 border-t border-t-gray-700">
       <ul class="flex flex-col gap-y-4 mt-4 text-gray-200">
         <li
           @click="openPage(link.id)"
@@ -89,9 +84,8 @@ export default {
   .ev-header{
     @apply overflow-hidden fixed top-0 left-0 right-0 z-20 sm:static;
     @apply flex flex-col items-stretch;
-    @apply mx-2 sm:m-0 py-2.5 px-4 sm:px-8 md:px-4 lg:px-4 xl:px-12;
-    @apply bg-red-900/70 sm:bg-gray-800 backdrop-blur-md;
-    @apply border-4 border-gray-800 sm:border-gray-800;
+    @apply mx-0 sm:m-0 py-4 px-4 sm:px-8 md:px-4 lg:px-4 xl:px-12;
+    @apply bg-gray-900;
   }
 </style>
 
