@@ -1,39 +1,30 @@
 <template>
-  <footer
-    class=" w-full flex flex-row items-center font-extrabold text-red-50 bg-gray-800 z-10 px-4 flex flex-col pt-4 sm:pt-8 md:pt-16 pb-4 px-4 sm:px-8 md:px-16 duration-300">
+  <footer class="footer-container">
 
-    <div class="w-full flex flex-col items-center sm:items-start border-b border-b-red-50">
+    <div class="w-full flex flex-col space-y-3.5 items-center sm:items-start border-b border-b-gray-700/95">
 
-      <div class="p-2 text-lg sm:text-xl md:text-xl text-center flex flex-col items-center sm:block">
-        <img class="w-5 h-5 sm:w-6 sm:h-6 inline mr-2" src="../../assets/icons/address-icon.png" alt="no img">
-        <div class="inline selectSpan">
-          <span class="mr-1">125040,</span>
-          <span class="mr-1">Россия,</span>
-          <span class="mr-1">Москва,</span>
-          <span class="mr-1">3-я улица Ямского поля,</span>
-          <span class="mr-1">д.2</span>
-          <span class="mr-1">корп.7,</span>
-          <span class="mr-1">офис 301</span>
-        </div>
+      <div class="flex flex-col items-center sm:block">
+        <img class="icon" src="../../assets/icons/address-icon.png" alt="no img">
+        <span class="mr-1">125040, Россия, Москва, 3-я улица Ямского поля, д.2 корп.7, офис 301</span>
       </div>
 
-      <div class="p-2 text-lg sm:text-xl md:text-xl text-center flex flex-col items-center sm:block">
-        <img class="w-5 h-5 sm:w-6 sm:h-6 inline mr-2" src="../../assets/icons/phone-icon.png" alt="no img">
-        <span class="p-1 mr-2 selectSpan">+7 (495) 717 01 01</span>
-        <span class="selectSpan">+7 (499) 557 07 97</span>
+      <div class="flex flex-col items-center sm:block">
+        <img class="icon" src="../../assets/icons/phone-icon.png" alt="no img">
+        <span>+7 (495) 717 01 01</span>
+        <span>+7 (499) 557 07 97</span>
       </div>
 
-      <div class="p-2 text-xl sm:text-2xl md:text-xl text-center flex flex-col items-center sm:block">
-        <img class="w-5 h-5 sm:w-6 sm:h-6 block sm:inline mr-2" src="../../assets/icons/email-icon.png"
-             alt="no img">
-        <span class="block sm:inline selectSpan">info@evcons.ru</span>
+      <div class="flex flex-col items-center sm:block">
+        <img class="icon" src="../../assets/icons/email-icon.png" alt="no img">
+        <span>info@evcons.ru</span>
       </div>
+
     </div>
 
-    <div
-      class="w-full place-self-end justify-self-end mt-2 sm:mt-4 md:mt-8 text-base lg:text-lg">
+    <div class="w-full text-left py-8">
       ©2023 "ООО Эверест Консалтиг"
     </div>
+
   </footer>
 </template>
 
@@ -44,11 +35,16 @@ export default {
 </script>
 
 <style scoped>
-  .selectSpan {
-    display: inline-block;
-    background: #F9FAFBFF;
-    border-radius: 0.55rem;
-    color: #1F2937FF;
-    padding: 0.1rem 0.75rem;
-  }
+
+.footer-container {
+  @apply w-full bg-gray-900;
+  @apply flex flex-col;
+  @apply text-center text-gray-200 font-light font-sans text-base;
+  @apply p-4 sm:p-6 md:p-12 lg:p-14 xl:p-16;
+}
+
+.icon {
+  @apply inline-block w-5 h-5 sm:w-6 sm:h-6 block sm:inline mr-2;
+}
+
 </style>
