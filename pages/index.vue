@@ -74,107 +74,23 @@
     <div class="mt-32"></div>
 
     <!--    БЛОК 2-->
-    <div class="customers-block-container">
+<!--    customer-section -->
+    <evCustomerSection />
 
-      <div class="title-wrapper">
-        <h2>Наши клиенты</h2>
-        <p>We’re a dynamic group of individuals who are passionate about what we do and dedicated to delivering the best
+    <!--  БЛОК 6  -->
+    <div class="manager-section">
+
+      <div class="manager-section-title">
+        <h2 class="managers-section-title">Руководство компании</h2>
+        <p class="managers-section-description">We’re a dynamic group of individuals who are passionate about what we do
+          and dedicated to delivering the best
           results for our clients.</p>
       </div>
 
-      <div class="content">
+      <div class="manager-cards-wrapper">
+        <div v-for="employee of employees" :key="employee.id" class="manager-card">
 
-        <div class="info-block-wrapper">
-          <p>
-            Наши специалисты успешно осуществили
-            и завершили проекты для 45 компаний из
-            рейтинга «Крупнейшие компании
-            России» (рейтинг <span>Эксперт-400</span>),
-            совокупная выручка которых за 2008 год превысила 9.3 трлн. руб.
-          </p>
-
-          <p class="p-2 sm:p-4 md:p-6 lg:p-6 bg-gray-200/60 rounded-md">
-            Основным деловым преимуществом нашей
-            компании является высокий профессионализм
-            сотрудников, а также опыт
-            выполнения проектов в сфере оценки и консалтинга с последующим согласованием результатов с крупнейшими
-            международными аудиторскими компаниями.
-          </p>
-
-          <p>
-            Специалисты Компании <span>Everest</span>
-            Consulting являются членами таких
-            профессиональных организаций, как
-            Саморегулируемая Межрегиональная Ассоциация Оценщиков
-            <span>(СМАО)</span>, Восточно-Европейский союз
-            экспертов (OSV), а также получили квалификации Американского общества оценщиков
-            <span>(ASA)</span>.
-          </p>
-        </div>
-
-        <div class="experience-box">
-          <div v-for="element of experienceGroup" class="experience-element">
-            <img class="mx-auto w-full max-w-[14rem]"
-                 :src="require(`./../assets/experience_logotypes/${element.img}.png`)" alt="err">
-
-            <div class="flex flex-wrap justify-center p-2 gap-1 text-sm sm:text-xs lg:sm">
-              <span
-                class="underline underline-offset-4 font-sans text-gray-200"
-                v-for="currService of element.services" :key="currService.id"
-              >
-                {{ currService.title }}
-              </span>
-            </div>
-
-          </div>
-        </div>
-      </div>
-
-      <div class="carousel-xs">
-        <carousel
-          paginationSize=6
-          pagination-padding=4
-          paginationColor="rgb(243 244 246)"
-          paginationActiveColor="rgb(220 38 38)"
-          autoplay
-          autoplay-timeout=4000
-          :per-page="1"
-          :mouse-drag="false"
-        >
-          <slide v-for="element of experienceGroup" :key="element.id" class="flex flex-col justify-evenly">
-            <img class="mx-auto" :src="require(`./../assets/experience_logotypes/${element.img}.png`)" alt="err">
-            <div class="flex flex-wrap justify-center pb-2 gap-1 mt-2 text-xs">
-              <span
-                class="px-2 py-0.5 rounded-xl font-medium border border-gray-700/60 bg-gray-100 backdrop-blur-sm text-gray-800 font-sans"
-                v-for="currService of element.services"
-                :key="currService.id"
-              >
-                {{ currService.title }}
-              </span>
-            </div>
-
-          </slide>
-        </carousel>
-      </div>
-
-    </div>
-
-    <!--  БЛОК 6  -->
-    <div class="content-6-container">
-
-      <div class="content-6-text-blocks-container">
-        <h3 class="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-extrabold">Руководство компании</h3>
-        <p class="text-xs sm:text-sm md:text-base lg:text-lg mt-2 font-sans">
-          We’re a dynamic group of individuals who are passionate about what we do and dedicated to delivering the best
-          results for our clients.
-        </p>
-      </div>
-
-      <div class="employee-cards-container">
-        <div v-for="employee of employees" :key="employee.id" class="employee-card-element">
-
-          <img class="employee-card-img"
-               :src="require(`../assets/avatars/${employee.avatarImgName}.png`)" alt="no img"/>
+          <img class="manager-ava" :src="require(`../assets/avatars/${employee.img}.png`)" alt="no img"/>
 
           <div class="employee-card-desc-container">
             <span class="text-gray-900 inline-block font-sans font-bold">
@@ -201,11 +117,11 @@
 <script>
 
 import Vue from 'vue';
-import {mainContent} from "@/configs/mainPage"
-import evFooter from "@/components/widgets/ev-footer"
+import {mainContent} from "@/configs/mainPage";
+import evCustomerSection from "@/components/sections/ev-customer-section/ev-customer-section";
+import evFooter from "@/components/widgets/ev-footer";
 import {priceInfoCards} from '@/configs/priceListInfo';
 import {ratingCards} from "@/configs/ratingCards";
-import {experienceGroup} from "@/configs/experience_2";
 import {infoBannerContentCards} from "~/configs/infoBannerCarousel";
 import VueCarousel from 'vue-carousel';
 import {Carousel, Slide} from "vue-carousel/src";
@@ -216,7 +132,8 @@ Vue.use(VueCarousel);
 export default {
   name: 'IndexPage',
   components: {
-    evFooter: evFooter,
+    evCustomerSection,
+    evFooter,
     Carousel,
     Slide
   },
@@ -227,7 +144,7 @@ export default {
       activeInfoBannerElementId: 1,
       infoBannerContentCards,
       buttonShow: false,
-      experienceGroup,
+
       priceInfoCards,
       ratingCards,
       mainContent: mainContent,
@@ -240,8 +157,28 @@ export default {
 
 <style lang="scss" scoped>
 
+* {
+  @apply font-sans;
+}
+
+h2 {
+  @apply text-gray-800 text-xl sm:text-2xl md:text-2xl lg:text-4xl font-extrabold;
+}
+
+p {
+  @apply text-gray-800 text-sm md:text-base;
+}
+
+.span-selected-red {
+  @apply bg-red-900 text-gray-200 mx-0.5 px-1 py-0.5 rounded-md;
+}
+
 .main-container {
   @apply bg-gray-100 w-full overflow-y-scroll flex flex-col items-center;
+}
+
+.main-container::-webkit-scrollbar {
+  width: 0;
 }
 
 .content-container-1 {
@@ -250,122 +187,51 @@ export default {
   @apply flex flex-col justify-evenly;
   @apply pt-20 sm:pt-0 px-4 sm:px-8 lg:px-12;
   @apply border-x-8 border-t-8 border-gray-100;
-  /**/
   background-blend-mode: multiply;
   background: rgba(180, 44, 56, 0.8) top / cover no-repeat fixed url("@/assets/background/main_page/bg-everest.jpg");
 }
 
-.main-container::-webkit-scrollbar {
-  width: 0;
-}
-
-.customers-block-container {
-  @apply w-full h-auto;
-  @apply flex flex-col items-center;
-  @apply bg-gray-50 border-8 border-gray-100;
-
-  & * {
-    @apply font-sans text-gray-800 text-sm md:text-base;
-  }
-
-  & h2 {
-    @apply text-xl sm:text-2xl md:text-2xl lg:text-4xl font-extrabold;
-  }
-
-  & p > span {
-    @apply bg-red-900 text-gray-200 mx-0.5 px-1 py-0.5 rounded-md;
-  }
-
-  .title-wrapper {
-    @apply w-full border-b border-b-gray-300/50;
-    @apply px-4 py-6 sm:px-6 sm:py-8 md:px-8 md:py-10 lg:px-14 lg:py-16 xl:px-16 xl:py-20;
-    @apply space-y-3 text-center md:text-left;
-    @apply transition-all duration-500;
-  }
-
-  .content {
-    @apply w-full sm:max-h-[1000px] md:max-h-[700px];
-    @apply flex flex-col items-center lg:flex-row lg:items-stretch;
-
-    .info-block-wrapper {
-      @apply py-6 px-4 lg:pr-8 lg:pl-14;
-      @apply text-center lg:text-left space-y-4 sm:space-y-8;
-      @apply w-full sm:w-[75vw] lg:w-[80vw] lg:max-w-[650px];
-    }
-
-    .experience-box {
-      @apply w-full overflow-y-scroll;
-      @apply hidden md:flex flex-wrap justify-center items-stretch;
-      @apply pt-4 lg:pt-0 bg-gray-800;
-      @apply gap-4 md:gap-2 lg:gap-5 xl:gap-6;
-      @apply border-t border-t-gray-400 lg:border-t-gray-100 rounded-md;
-
-      .experience-element {
-        @apply md:w-[30vw] md:max-w-[250px];
-        @apply lg:w-[22vw] lg:max-w-[280px];
-        @apply xl:w-[15vw] xl:max-w-[300px];
-        @apply text-center;
-      }
-
-      & * {
-        @apply text-gray-200 text-xs md:text-sm;
-      }
-
-      &::-webkit-scrollbar {
-        @apply w-2.5 h-4;
-      }
-
-      &::-webkit-scrollbar-track {
-        @apply bg-red-900;
-      }
-
-      &::-webkit-scrollbar-thumb {
-        @apply bg-gray-600 rounded-md;
-      }
-    }
-  }
-
-  .carousel-xs {
-    @apply md:hidden max-w-full text-center bg-gray-800 rounded-md;
-  }
-}
 
 
-.content-6-container {
-  @apply w-full;
-  @apply flex flex-col;
-  @apply mt-4 px-4 sm:px-8 md:px-4 lg:px-4 xl:px-12 pb-3 md:pb-4 lg:pb-6 xl:pb-8;
-  @apply bg-gray-200 text-gray-800;
+.manager-section {
+  @apply w-full bg-gray-200 text-gray-800;
   @apply border-b-8 border-b-red-800;
+  @apply lg:px-4 xl:px-12 pb-3 md:pb-4 lg:pb-6 xl:pb-8;
+
+
+
+  .manager-section-title {
+
+    @apply px-4 py-6 sm:px-6 sm:py-8 md:px-8 md:py-10 lg:px-14 lg:py-16 xl:px-16 xl:py-20;
+
+    @apply text-center md:text-left p-4 sm:p-6 md:p-8;
+  }
+
+  .manager-cards-wrapper {
+    @apply w-full flex flex-wrap justify-center items-stretch md:justify-evenly;
+    @apply gap-y-4 sm:gap-x-2 sm:gap-x-4 md:gap-x-6 lg:gap-x-4 xl:gap-x-8;
+    @apply mt-4 lg:mt-12 md:mt-8 lg:mt-10;
+
+    .manager-card {
+      @apply w-full sm:w-[45%] sm:max-w-[280px] md:w-[30%] md:max-w-[290px] lg:w-[22vw] lg:max-w-[270px];
+      @apply flex items-center justify-center flex-wrap;
+
+      .manager-ava {
+        @apply p-2.5;
+        @apply object-contain min-w-[140px] w-[70vw] max-w-[185px] min-h-[140px] h-[70vw] max-h-[185px];
+      }
+
+    }
+  }
 }
 
-.content-6-text-blocks-container {
-  @apply text-center sm:text-left mt-4 sm:mt-6 md:mt-8 lg:mt-10;
-}
 
-.employee-cards-container {
-  @apply w-full;
-  @apply flex flex-wrap justify-center items-stretch md:justify-evenly;
-  @apply gap-y-4 sm:gap-x-2 sm:gap-x-4 md:gap-x-6 lg:gap-x-4 xl:gap-x-8;
-  @apply mt-4 lg:mt-12 md:mt-8 lg:mt-10;
-}
-
-.employee-card-element {
-  @apply w-full sm:w-[45%] sm:max-w-[280px] md:w-[30%] md:max-w-[290px] lg:w-[22vw] lg:max-w-[270px];
-  @apply flex items-center justify-center flex-wrap;
-}
-
-.employee-card-img {
-  @apply p-2.5;
-  @apply object-contain min-w-[140px] w-[70vw] max-w-[185px] min-h-[140px] h-[70vw] max-h-[185px];
-}
 
 .employee-card-desc-container {
   @apply flex flex-col;
   @apply text-left text-base;
   @apply space-y-0.5;
 }
-
 
 .content-container-3 {
   @apply z-10 relative;
