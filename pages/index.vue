@@ -71,7 +71,7 @@
     <!--      </div>-->
     <!--    </div>-->
 
-    <div class="mt-32"></div>
+    <div class="mt-20 sm:mt-0"></div>
 
     <!--    БЛОК 2-->
 <!--    customer-section -->
