@@ -6,7 +6,7 @@
   font-family: "Raleway", 'SF Pro Display', 'Source Sans Pro', sans-serif;
 }
 
-*::-webkit-scrollbar {
+body::-webkit-scrollbar {
   width: 0;
 }
 
