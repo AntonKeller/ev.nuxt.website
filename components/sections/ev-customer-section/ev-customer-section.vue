@@ -25,6 +25,32 @@
           (СМАО), Восточно-Европейский союз экспертов (OSV), а также
           получили квалификации Американского общества оценщиков(ASA).
         </p>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium beatae eligendi expedita impedit ipsa
+          molestias qui quia quisquam repellendus voluptatibus. Ad deserunt dolorem earum eos esse eveniet incidunt iste
+          laudantium libero magni maxime, minima, neque nesciunt nulla placeat porro, quae qui quia quos repellat soluta
+          temporibus tenetur velit vero voluptate? Aliquid aut deserunt dolor dolore eaque esse, est facere illo impedit
+          inventore ipsa iusto laudantium magnam magni mollitia natus nemo nisi nostrum obcaecati odio officiis possimus
+          provident quaerat quasi qui quisquam quod quos reiciendis sint suscipit tempora temporibus ullam unde
+          veritatis voluptatem, voluptatibus voluptatum. Blanditiis eos, esse exercitationem iure neque obcaecati ullam!
+          Ab accusamus architecto, aut commodi corporis delectus, dolorem enim eos esse et eum expedita fugiat in ipsum
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium beatae eligendi expedita impedit ipsa
+          molestias qui quia quisquam repellendus voluptatibus. Ad deserunt dolorem earum eos esse eveniet incidunt iste
+          laudantium libero magni maxime, minima, neque nesciunt nulla placeat porro, quae qui quia quos repellat soluta
+          temporibus tenetur velit vero voluptate? Aliquid aut deserunt dolor dolore eaque esse, est facere illo impedit
+          inventore ipsa iusto laudantium magnam magni mollitia natus nemo nisi nostrum obcaecati odio officiis possimus
+          provident quaerat quasi qui quisquam quod quos reiciendis sint suscipit tempora temporibus ullam unde
+          veritatis voluptatem, voluptatibus voluptatum. Blanditiis eos, esse exercitationem iure neque obcaecati ullam!
+          Ab accusamus architecto, aut commodi corporis delectus, dolorem enim eos esse et eum expedita fugiat in ipsum
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium beatae eligendi expedita impedit ipsa
+          molestias qui quia quisquam repellendus voluptatibus. Ad deserunt dolorem earum eos esse eveniet incidunt iste
+          laudantium libero magni maxime, minima, neque nesciunt nulla placeat porro, quae qui quia quos repellat soluta
+          temporibus tenetur velit vero voluptate? Aliquid aut deserunt dolor dolore eaque esse, est facere illo impedit
+          inventore ipsa iusto laudantium magnam magni mollitia natus nemo nisi nostrum obcaecati odio officiis possimus
+          provident quaerat quasi qui quisquam quod quos reiciendis sint suscipit tempora temporibus ullam unde
+          veritatis voluptatem, voluptatibus voluptatum. Blanditiis eos, esse exercitationem iure neque obcaecati ullam!
+          Ab accusamus architecto, aut commodi corporis delectus, dolorem enim eos esse et eum expedita fugiat in ipsum
+        </p>
       </div>
 
       <div class="experience-box">
@@ -38,9 +64,10 @@
                 {{ currService.title }}
               </span>
           </div>
-
         </div>
       </div>
+
+
     </div>
 
     <!--    <div class="carousel-xs">-->
@@ -79,6 +106,10 @@ import {experienceGroup} from "@/configs/experience_2";
 
 export default {
   name: "customer-section",
+  methods: {},
+  mounted() {
+
+  },
   data() {
     return {
       experienceGroup,
@@ -97,9 +128,23 @@ export default {
   @apply font-sans;
 }
 
-p {
-  @apply text-gray-800 text-sm md:text-base font-serif;
+*::-webkit-scrollbar {
+  @apply w-1 h-3;
 }
+
+*::-webkit-scrollbar-track {
+  @apply bg-red-50;
+}
+
+*::-webkit-scrollbar-thumb {
+  @apply bg-gray-600 rounded-xl;
+}
+
+p {
+  @apply text-gray-800 text-sm md:text-base font-sans;
+}
+
+
 
 // ......................................
 
@@ -122,6 +167,7 @@ p {
     @apply pb-4 sm:pb-8 md:pb-10 lg:pb-10 xl:pb-12;
     @apply text-center md:text-left;
     @apply space-y-3 lg:space-y-5;
+
     h2 {
       @apply text-gray-800 text-xl sm:text-2xl md:text-2xl lg:text-4xl font-serif;
     }
@@ -133,39 +179,32 @@ p {
 
   .customer-section--content {
 
-    @apply w-full lg:flex;
+    @apply w-full lg:flex lg:items-stretch;
     @apply md:space-y-8 lg:space-y-0 lg:space-x-4;
+    @apply lg:h-[70vh] lg:h-[70vh];
 
     .info-block-wrapper {
+      @apply overflow-y-scroll;
       @apply text-center md:text-left align-top;
       @apply space-y-[calc(3vw+8px)] sm:space-y-6 md:space-y-8 lg:space-y-10;
       @apply lg:w-[56vw] xl:w-[50vw] lg:max-w-[750px];
+      @apply lg:h-full pr-2;
     }
 
     .experience-box {
       @apply w-full overflow-y-scroll;
+      @apply h-[40vh] lg:h-full;
       @apply hidden md:flex flex-wrap justify-evenly items-stretch;
-      @apply bg-gray-900 text-center;
+      @apply bg-gray-50 text-center;
       @apply md:gap-3 lg:gap-2;
       @apply border-t border-t-gray-400 lg:border-t-gray-100 rounded-md;
-
-      &::-webkit-scrollbar {
-        @apply w-2.5 h-4;
-      }
-
-      &::-webkit-scrollbar-track {
-        @apply bg-red-900;
-      }
-
-      &::-webkit-scrollbar-thumb {
-        @apply bg-gray-600 rounded-md;
-      }
 
       & * {
         @apply text-gray-200 text-xs md:text-sm;
       }
 
       .experience-element {
+        @apply bg-gray-900 rounded-md;
         @apply md:w-[34vw] lg:w-[23.5vw] xl:w-[17.5vw] xl:max-w-[280px] py-4;
 
         .experience-element--services {
@@ -173,7 +212,6 @@ p {
           @apply gap-1 text-xs sm:text-xs;
 
           .service {
-            //@apply underline underline-offset-4
             @apply rounded-xl bg-red-900 py-0.5 px-1.5;
             @apply font-sans text-gray-200;
           }

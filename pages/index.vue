@@ -155,7 +155,7 @@ export default {
 </script>
 
 
-<style lang="scss" scoped>
+<style scoped>
 
 * {
   @apply font-sans;
@@ -191,41 +191,32 @@ p {
   background: rgba(180, 44, 56, 0.8) top / cover no-repeat fixed url("@/assets/background/main_page/bg-everest.jpg");
 }
 
-
-
 .manager-section {
   @apply w-full bg-gray-200 text-gray-800;
   @apply border-b-8 border-b-red-800;
   @apply lg:px-4 xl:px-12 pb-3 md:pb-4 lg:pb-6 xl:pb-8;
-
-
-
-  .manager-section-title {
-
-    @apply px-4 py-6 sm:px-6 sm:py-8 md:px-8 md:py-10 lg:px-14 lg:py-16 xl:px-16 xl:py-20;
-
-    @apply text-center md:text-left p-4 sm:p-6 md:p-8;
-  }
-
-  .manager-cards-wrapper {
-    @apply w-full flex flex-wrap justify-center items-stretch md:justify-evenly;
-    @apply gap-y-4 sm:gap-x-2 sm:gap-x-4 md:gap-x-6 lg:gap-x-4 xl:gap-x-8;
-    @apply mt-4 lg:mt-12 md:mt-8 lg:mt-10;
-
-    .manager-card {
-      @apply w-full sm:w-[45%] sm:max-w-[280px] md:w-[30%] md:max-w-[290px] lg:w-[22vw] lg:max-w-[270px];
-      @apply flex items-center justify-center flex-wrap;
-
-      .manager-ava {
-        @apply p-2.5;
-        @apply object-contain min-w-[140px] w-[70vw] max-w-[185px] min-h-[140px] h-[70vw] max-h-[185px];
-      }
-
-    }
-  }
 }
 
+.manager-section-title {
+  @apply px-4 py-6 sm:px-6 sm:py-8 md:px-8 md:py-10 lg:px-14 lg:py-16 xl:px-16 xl:py-20;
+  @apply text-center md:text-left p-4 sm:p-6 md:p-8;
+}
 
+.manager-cards-wrapper {
+  @apply w-full flex flex-wrap justify-center items-stretch md:justify-evenly;
+  @apply gap-y-4 sm:gap-x-2 sm:gap-x-4 md:gap-x-6 lg:gap-x-4 xl:gap-x-8;
+  @apply mt-4 lg:mt-12 md:mt-8 lg:mt-10;
+}
+
+.manager-card {
+  @apply w-full sm:w-[45%] sm:max-w-[280px] md:w-[30%] md:max-w-[290px] lg:w-[22vw] lg:max-w-[270px];
+  @apply flex items-center justify-center flex-wrap;
+}
+
+.manager-ava {
+  @apply p-2.5;
+  @apply object-contain min-w-[140px] w-[70vw] max-w-[185px] min-h-[140px] h-[70vw] max-h-[185px];
+}
 
 .employee-card-desc-container {
   @apply flex flex-col;
