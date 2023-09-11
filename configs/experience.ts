@@ -1,67 +1,149 @@
-interface logotypeType {
+interface TServices {
+  id: number,
+  title: string,
+  cssClasses: string
+}
+
+interface ExLogotypeType {
   id: number,
   img: string,
+  services: Array<TServices>
 }
 
-interface TabType {
-  id: number,
-  value: string,
-  logotypes: Array<logotypeType>
-}
-
-export const tabs: Array<TabType> = [
-  {
-    id: 1,
-    value: "оценка бизнеса, оценка имущественных активов",
-    logotypes: [
-      {id: 1, img: "inter-rao"},
-      {id: 2, img: "rosatom"}
-    ]
-  },
-  {
-    id: 2,
-    value: "оценка",
-    logotypes: [
-      {id: 1, img: "moskowkiy-bank"},
-      {id: 2, img: "rosekim-bank"},
-      {id: 3, img: "rosselhoz-bank"},
-      {id: 4, img: "afk-systema"},
-      {id: 5, img: "web-rf"},
-      {id: 6, img: "sber"},
-      {id: 7, img: "mkb"},
-      {id: 8, img: "novikom-bank"}
-    ]
-  },
-  {
-    id: 3,
-    value: "строительный аудит",
-    logotypes: [
-      {id: 1, img: "pcb"},
-      {id: 2, img: "otkritie-bank"},
-      {id: 3, img: "cb-rf"},
-      {id: 4, img: "almaz-antay"},
-      {id: 5, img: "turizm-rf"},
-      {id: 6, img: "frp"},
-      {id: 7, img: "rosteh"}
-    ]
-  },
-  {
-    id: 4,
-    value: "строительная экспертиза, технологическая экспертиза",
-    logotypes: [
-      {id: 1, img: "otkritie-bank"},
-      {id: 2, img: "cb-rf"},
-      {id: 3, img: "almaz-antay"},
-      {id: 4, img: "turizm-rf"},
-      {id: 5, img: "frp"},
-      {id: 6, img: "rosteh"}
-    ]
-  },
-  {
-    id: 5,
-    value: "финансово-технический надзор",
-    logotypes: [
-      {id: 1, img: "pcb"}
-    ]
-  },
-]
+export const experienceGroup: Array<ExLogotypeType> =
+  [
+    {
+      id: 1,
+      img: "inter-rao",
+      services: [
+        {id: 1, title: "Оценка бизнеса", cssClasses: "bg-red-700"},
+        {id: 2, title: "Оценка имущественных активов", cssClasses: "bg-cyan-700"}
+      ]
+    },
+    {
+      id: 2,
+      img: "rosatom",
+      services: [
+        {id: 1, title: "Оценка бизнеса", cssClasses: "bg-red-700"},
+        {id: 2, title: "Оценка имущественных активов", cssClasses: "bg-cyan-700"}
+      ]
+    },
+    {
+      id: 3,
+      img: "moskowkiy-bank",
+      services: [
+        {id: 1, title: "Оценка", cssClasses: "bg-blue-700"},
+      ]
+    },
+    {
+      id: 4,
+      img: "rosekim-bank",
+      services: [
+        {id: 1, title: "Оценка", cssClasses: "bg-blue-700"},
+      ]
+    },
+    {
+      id: 5,
+      img: "rosselhoz-bank",
+      services: [
+        {id: 1, title: "Оценка", cssClasses: "bg-blue-700"},
+      ]
+    },
+    {
+      id: 6,
+      img: "afk-systema",
+      services: [
+        {id: 1, title: "Оценка", cssClasses: "bg-blue-700"},
+      ]
+    },
+    {
+      id: 7,
+      img: "web-rf",
+      services: [
+        {id: 1, title: "Оценка", cssClasses: "bg-blue-700"},
+      ]
+    },
+    {
+      id: 8,
+      img: "sber",
+      services: [
+        {id: 1, title: "Оценка", cssClasses: "bg-blue-700"},
+      ]
+    },
+    {
+      id: 9,
+      img: "mkb",
+      services: [
+        {id: 1, title: "Оценка", cssClasses: "bg-blue-700"},
+      ]
+    },
+    {
+      id: 10,
+      img: "novikom-bank",
+      services: [
+        {id: 1, title: "Оценка", cssClasses: "bg-blue-700"},
+      ]
+    },
+    {
+      id: 11,
+      img: "pcb",
+      services: [
+        {id: 1, title: "Строительный аудит", cssClasses: "bg-violet-700"},
+        {id: 2, title: "Финансово-технический надзор", cssClasses: "bg-fuchsia-700"},
+      ]
+    },
+    {
+      id: 12,
+      img: "otkritie-bank",
+      services: [
+        {id: 1, title: "Строительный аудит", cssClasses: "bg-violet-700"},
+        {id: 2, title: "Строительная экспертиза", cssClasses: "bg-emerald-700"},
+        {id: 3, title: "Технологическая экспертиза", cssClasses: "bg-gray-700"},
+      ]
+    },
+    {
+      id: 13,
+      img: "cb-rf",
+      services: [
+        {id: 1, title: "Строительный аудит", cssClasses: "bg-violet-700"},
+        {id: 2, title: "Строительная экспертиза", cssClasses: "bg-emerald-700"},
+        {id: 3, title: "Технологическая экспертиза", cssClasses: "bg-gray-700"},
+      ]
+    },
+    {
+      id: 14,
+      img: "almaz-antay",
+      services: [
+        {id: 1, title: "Строительный аудит", cssClasses: "bg-violet-700"},
+        {id: 2, title: "Строительная экспертиза", cssClasses: "bg-emerald-700"},
+        {id: 3, title: "Технологическая экспертиза", cssClasses: "bg-gray-700"},
+      ]
+    },
+    {
+      id: 15,
+      img: "turizm-rf",
+      services: [
+        {id: 1, title: "Строительный аудит", cssClasses: "bg-violet-700"},
+        {id: 2, title: "Строительная экспертиза", cssClasses: "bg-emerald-700"},
+        {id: 3, title: "Технологическая экспертиза", cssClasses: "bg-gray-700"},
+      ]
+    },
+    {
+      id: 16,
+      img: "frp",
+      services: [
+        {id: 1, title: "Строительный аудит", cssClasses: "bg-violet-700"},
+        {id: 2, title: "Строительная экспертиза", cssClasses: "bg-emerald-700"},
+        {id: 3, title: "Технологическая экспертиза", cssClasses: "bg-gray-700"},
+      ]
+    },
+    {
+      id: 17,
+      img: "rosteh",
+      services: [
+        {id: 1, title: "Строительный аудит", cssClasses: "bg-violet-700"},
+        {id: 2, title: "Строительная экспертиза", cssClasses: "bg-emerald-700"},
+        {id: 3, title: "Технологическая экспертиза", cssClasses: "bg-gray-700"},
+      ]
+    },
+  ];
