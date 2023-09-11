@@ -7,7 +7,7 @@
     <!--      &lt;!&ndash;  ЗАГОЛОВОК С КНОПКОЙ  &ndash;&gt;-->
     <!--      <div class="flex flex-col items-center lg:flex-row lg:items-start lg:justify-around">-->
 
-    <!--        <div class="w-full lg:w-5/12 text-center text-gray-800 font-extrabold flex flex-col justify-start mt-8 lg:mt-0">-->
+    <!--        <div class="w-full lg:w-5/12 text-center text-gray-700 font-extrabold flex flex-col justify-start mt-8 lg:mt-0">-->
     <!--          <h1 class="text-gray-200 text-2xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl">-->
     <!--            Эверест Консалтинг-->
     <!--          </h1>-->
@@ -74,15 +74,15 @@
     <div class="mt-20 sm:mt-0"></div>
 
     <!--    БЛОК 2-->
-<!--    customer-section -->
-    <evCustomerSection />
+    <!--    customer-section -->
+    <!--    <evCustomerSection/> -->
 
     <!--  БЛОК 6  -->
     <div class="manager-section">
 
       <div class="manager-section-title">
-        <h2 class="managers-section-title">Руководство компании</h2>
-        <p class="managers-section-description">We’re a dynamic group of individuals who are passionate about what we do
+        <h2>Руководство компании</h2>
+        <p>We’re a dynamic group of individuals who are passionate about what we do
           and dedicated to delivering the best
           results for our clients.</p>
       </div>
@@ -155,18 +155,18 @@ export default {
 </script>
 
 
-<style scoped>
+<style lang="scss" scoped>
 
 * {
   @apply font-sans;
 }
 
 h2 {
-  @apply text-gray-800 text-xl sm:text-2xl md:text-2xl lg:text-4xl font-extrabold;
+  @apply text-gray-700 text-xl sm:text-2xl md:text-2xl lg:text-4xl font-extrabold;
 }
 
 p {
-  @apply text-gray-800 text-sm md:text-base;
+  @apply text-gray-700 text-sm md:text-base;
 }
 
 .span-selected-red {
@@ -192,14 +192,27 @@ p {
 }
 
 .manager-section {
-  @apply w-full bg-gray-200 text-gray-800;
+  @apply w-full bg-gray-200 text-gray-700;
   @apply border-b-8 border-b-red-800;
-  @apply lg:px-4 xl:px-12 pb-3 md:pb-4 lg:pb-6 xl:pb-8;
+  @apply px-[calc(8vw-6px)] sm:px-[12vw] md:px-[12vw] lg:px-10 xl:px-12;
+  @apply py-6 sm:py-8 md:py-10 lg:py-16 xl:py-14;
+  @apply mt-4 sm:mt-6;
 }
 
 .manager-section-title {
-  @apply px-4 py-6 sm:px-6 sm:py-8 md:px-8 md:py-10 lg:px-14 lg:py-16 xl:px-16 xl:py-20;
-  @apply text-center md:text-left p-4 sm:p-6 md:p-8;
+  @apply w-full border-b border-b-gray-200;
+  @apply pb-4 sm:pb-8 md:pb-10 lg:pb-10 xl:pb-12;
+  @apply text-center md:text-left;
+  @apply space-y-3 lg:space-y-5;
+
+  h2 {
+    @apply text-gray-700 text-xl sm:text-2xl md:text-2xl lg:text-4xl font-serif;
+  }
+
+  p {
+    @apply text-lg font-serif;
+  }
+
 }
 
 .manager-cards-wrapper {
