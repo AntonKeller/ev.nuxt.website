@@ -16,7 +16,7 @@
           class="rounded-lg border-t border-t-gray-900 border-l border-r border-b border-l-gray-700 border-b-gray-700 border-r-gray-700 px-4">
           <ul class="w-full flex flex-col justify-center items-start pb-4">
             <li
-              v-for="tab of tabs"
+              v-for="tab of experienceGroup"
               @click.left="setActiveTab(tab.id)"
               :class="{'bg-gray-600': tab.id === activeTab}"
               class="bg-gray-700 text-gray-300 py-2 px-4 rounded-lg uppercase cursor-pointer show-left font-extrabold text-base mt-2 sm:mt-3.5 text-gray-300 text-left w-full transition-colors">
@@ -29,7 +29,7 @@
       <div
         class="hidden md:flex flex-row items-stretch overflow-x-scroll font-extrabold text-gray-300">
         <div
-          v-for="tab of tabs"
+          v-for="tab of experienceGroup"
           :key="tab.id"
           @click.left="setActiveTab(tab.id)"
           :class="{'opacity-50': activeTab === tab.id}"
@@ -56,7 +56,7 @@
 
 <script>
 
-import {tabs} from "@/configs/experience"
+import {experienceGroup} from "@/configs/experience"
 
 export default {
   name: "experience",
@@ -81,7 +81,7 @@ export default {
 
   data() {
     return {
-      tabs,
+      experienceGroup,
       activeTab: 3,
       activeImg: 0,
       dropMenuIsOpen: false,
@@ -90,7 +90,7 @@ export default {
 
   methods: {
     getTabLogotypes() {
-      return tabs[this.activeTab-1].logotypes;
+      return experienceGroup[this.activeTab-1].img;
     },
 
     setActiveTab(id) {

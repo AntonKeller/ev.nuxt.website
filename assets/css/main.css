@@ -3,8 +3,7 @@
 @tailwind utilities;
 
 * {
-  /*font-family: "Raleway", 'SF Pro Display', 'Source Sans Pro', sans-serif;*/
-  font-family: 'SF Pro Display', 'Source Sans Pro', sans-serif;
+  font-family: 'ui-sans-serif', 'SF Pro Display', 'Source Sans Pro', sans-serif;
 }
 
 body::-webkit-scrollbar {

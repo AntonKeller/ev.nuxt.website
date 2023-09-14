@@ -35,6 +35,7 @@ export default {
   @apply px-[calc(8vw-6px)] sm:px-[12vw] md:px-[12vw] lg:px-10 xl:px-12;
   @apply py-6 sm:py-8 md:py-10 lg:py-12 xl:py-14;
   background: rgb(17 24 39) top / cover no-repeat fixed url("@/assets/background/bg-lines-color.png");
+
 }
 
 .elements {
