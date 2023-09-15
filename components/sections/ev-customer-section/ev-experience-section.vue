@@ -97,7 +97,6 @@ export default {
 
 .experience-section {
   @apply text-gray-700;
-  //@apply w-full flex flex-col items-center;
   @apply border-x-8 border-gray-100;
   @apply px-[calc(8vw-6px)] sm:px-[12vw] md:px-[12vw] lg:px-10 xl:px-12;
   @apply py-6 sm:py-8 md:py-10 lg:py-16 xl:py-14 mt-4 sm:mt-6;
@@ -146,12 +145,12 @@ export default {
 
       .experience-element {
         @apply flex flex-col justify-around border-4 border-gray-300;
-        @apply bg-gray-800 rounded-xl;
+        @apply bg-gray-900 rounded-xl;
         @apply min-h-[215px];
         @apply md:w-[34vw] lg:w-[23.5vw] xl:w-[17.5vw] xl:max-w-[280px];
 
         &:hover {
-          @apply bg-gray-900;
+          @apply scale-95 duration-100;
         }
 
         .experience-element--services {

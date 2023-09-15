@@ -1,37 +1,55 @@
 <template>
-  <div>
-    <div
-      class="h-[calc(100vh-60px)] sm:h-[calc(100vh-80px)] md:h-screen overflow-y-scroll back pl-4 pr-4 md:pl-12 md:pr-12 lg:pl-32 lg:pr-32 xl:pl-56 xl:pr-56 w-auto overflow-hidden pt-6 md:pt-28">
+  <div class="main-container">
 
-      <div class="w-full overflow-x-scroll flex md:flex-wrap md:w-full md:justify-center text-red-50 font-extrabold">
-        <div
-          class="flex bg-red-800 rounded-md justify-center items-center duration-300 cursor-pointer hover:bg-transparent border-2 border-red-800 rounded-sm px-4 pt-2 pb-2 m-2 first:ml-0 md:text-lg"
-          v-for="element of getRatingYears()"
-          @click="setActiveYear(element.year)">
-          <span class="select-none duration-300" :class="{'-rotate-90': activeYear === element.year}"><</span>
-          <h3 class="ml-5">{{ element.year }}</h3>
-        </div>
-      </div>
-
-      <div class="flex flex-row flex-wrap w-full items-end justify-evenly">
-        <div
-          class="ratingShowAnimate w-full flex flex-col justify-center items-center m-1 p-2 md:p-4 text-xl md:w-5/12 lg:w-3/12 text-red-50 border-b-4 border-b-red-50"
-          v-for="description of getDescriptionOfActiveYear()">
-          <div
-            class="flex justify-center items-center text-center w-16 h-16 font-extrabold text-lg md:text-xl  lg:text-3xl rounded-full border-8 border-red-700">
-            <p>{{ description.value }}</p>
-          </div>
-          <div class="text-center">{{ description.title }}</div>
-        </div>
-      </div>
-
+    <div class="preview-container">
+      <h1 class="rating-preview--title">Рейтинг компании</h1>
+      <p
+        class="rating-preview--description"
+        v-for="element of title.descriptions"
+        :key="element.id"
+      >
+        {{element.value}}
+      </p>
     </div>
+
+    <Hooper
+      group="group1"
+      class="rating-button-slider"
+      autoPlay
+      playSpeed=6000
+      itemsToShow=1
+    >
+      <Slide
+        class="rating-button-slide"
+        v-for="element of getRatingYears()"
+        @click="setActiveYear(element.year)"
+      >
+        <span class="block ml-2 text-gray-100/20" > < </span>
+        <h3 class="block">{{ element.year }}</h3>
+        <span class="block mr-2 text-gray-100/20" > > </span>
+      </Slide>
+    </Hooper>
+
+    <Hooper group="group1" class="rating-info-slider">
+      <Slide class="rating-button-slide" v-for="element of getRatingYears()" @click="setActiveYear(element.year)">
+        <section class="ratingContainer">
+          <div class="ratingElement animate-show-2" v-for="description of getInfoByYear(element.year)">
+            <div class="flex justify-center bg-gray-200 text-gray-700 items-center text-center w-16 h-16 font-extrabold text-lg md:text-xl lg:text-3xl rounded-t-sm rounded-b-3xl border-4 border-gray-600">
+              <p>{{ description.value }}</p>
+            </div>
+            <p>{{ description.title }}</p>
+          </div>
+        </section>
+      </Slide>
+    </Hooper>
+
   </div>
 </template>
 
 <script>
-import evHeader from "@/components/widgets/ev-header.vue"
 import {rating} from "@/configs/ratingConfig.ts"
+import {Hooper, Slide} from "hooper";
+import 'hooper/dist/hooper.css';
 
 export default {
   name: "rating",
@@ -55,18 +73,26 @@ export default {
   },
 
   components: {
-    'aboutHeader': evHeader,
+    Hooper,
+    Slide,
   },
 
   data() {
     return {
       rating,
-      activeYear: Number,
+      activeYear: 2021,
+      title: {
+        descriptions: [
+          {id: 1, value: "Наши специалисты успешно осуществили и завершили проекты для 45 компаний из рейтинга «Крупнейшие компании России» (рейтинг Эксперт-400), совокупная выручка которых за 2008 год превысила 9.3 трлн. руб."},
+          {id: 2, value: "Основным деловым преимуществом нашей компании является высокий профессионализм сотрудников, а также опыт выполнения проектов в сфере оценки и консалтинга с последующим согласованием результатов с крупнейшими международными аудиторскими компаниями."},
+          {id: 3, value: "Специалисты Компании Everest Consulting являются членами таких профессиональных организаций, как Саморегулируемая Межрегиональная Ассоциация Оценщиков (СМАО), Восточно-Европейский союз экспертов (OSV), а также получили квалификации Американского общества оценщиков (ASA)."},
+        ]
+      }
     }
   },
 
   mounted() {
-    this.activeYear = 2021;
+    // this.activeYear = 2021;
   },
 
   methods: {
@@ -80,10 +106,12 @@ export default {
       })
     },
 
-    getDescriptionOfActiveYear() {
-      let buff = this.rating.filter(el => el.year === this.activeYear);
-      if (buff.length === 0) return null;
-      return buff[0].description;
+    getInfoByYear(year) {
+      return this.rating.find(e => e.year === year)?.infoByYear || null;
+    },
+
+    getRatingElements() {
+      return this.rating.find(e => e.year === this.activeYear)?.infoByYear || null;
     },
 
     setActiveYear(id) {
@@ -93,24 +121,97 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 
-.back {
-  /*background: url("@/assets/background/bg-rgb-three-lines-2.png") no-repeat center / cover;*/
+.main-container {
+  @apply w-full h-fit overflow-y-scroll;
+  @apply pt-24 pb-12 sm:pt-8 md:pt-14 lg:pt-16 xl:pt-20;
+  @apply px-4 sm:pl-[5vw] sm:pr-[10vw] md:pr-[10vw] lg:pr-[15vw] xl:pr-[30vw];
+  @apply bg-gray-900 bg-blend-multiply;
+  background: top / cover no-repeat fixed url("@/assets/background/bg-rgb-three-lines-2.png");
+
+  &::-webkit-scrollbar {
+    width: 0;
+    visibility: hidden;
+  }
 }
 
-.ratingShowAnimate {
-  animation: moveRating-1 ease 0.8s;
+// Контейнер Preview контента
+.preview-container {
+
+  // Общее для Preview заголовка и описания
+  .rating-preview--title, .rating-preview--description {
+
+  }
+
+  // Preview Заголовок
+  .rating-preview--title {
+    @apply bg-red-900 sm:bg-transparent py-1 sm:py-0 rounded-sm;
+    @apply text-gray-200 sm:text-gray-300 font-extrabold text-center sm:text-left;
+    @apply text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl;
+  }
+
+  // Preview Описание к заголовку
+  .rating-preview--description {
+    @apply mt-2 sm:mt-4 p-[8vw] sm:p-0;
+    @apply bg-gray-100 sm:bg-transparent rounded-sm;
+    @apply text-gray-700 sm:text-gray-200;
+    @apply text-center sm:text-left;
+    @apply text-base md:text-lg;
+  }
 }
 
-@keyframes moveRating-1 {
+// Слайдер с кнопками (года)
+.rating-button-slider {
+  @apply w-full sm:max-w-[280px] h-fit mt-2 sm:mt-6;
+
+  .rating-button-slide {
+    @apply flex justify-between;
+    @apply font-extrabold text-center text-gray-100 py-2 rounded-sm sm:rounded-md;
+    @apply bg-gradient-to-r from-indigo-800/50 to-red-800/80;
+  }
+}
+
+.rating-info-slider {
+  @apply h-fit border-t border-dashed border-gray-300/40 mt-6;
+}
+
+.ratingContainer {
+  @apply w-full mt-6;
+  @apply flex flex-wrap items-stretch justify-between;
+  @apply gap-6 sm:gap-y-10 sm:gap-x-6;
+}
+
+.ratingElement {
+  @apply w-full sm:w-[45%] md:w-[30%];
+  @apply flex flex-col justify-start items-center gap-y-3;
+  @apply text-center text-base text-gray-200;
+}
+
+.gradient-1 {
+  @apply bg-gradient-to-r from-indigo-800/50 to-red-800/80;
+}
+
+.gradient-2 {
+  @apply bg-gradient-to-r from-gray-100/50 to-red-800/80;
+}
+
+.animate-show-1 {
+  animation: ani-show-from-right ease 0.65s;
+}
+
+.animate-show-2 {
+  animation: ani-show ease-in-out 0.65s;
+}
+
+@keyframes ani-show-from-right {
   from {
     opacity: 0;
     transform: translateX(50px);
   }
 }
 
-@keyframes years-buttons-animate {
+@keyframes ani-show {
   from {
     opacity: 0;
   }

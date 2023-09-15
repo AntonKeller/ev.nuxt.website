@@ -26,15 +26,16 @@ export default {
       {name: 'format-detection', content: 'telephone=+79516962121'},
       {name: 'author', content: 'ООО "Эверест консалтинг" '}
     ],
+
     link: [
+      {
+        rel: "stylesheet",
+        href: "https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700;800;900&display=swap",
+      },
       {
         rel: 'icon',
         type: 'image/x-icon',
         href: '/favicon_16x16.ico'
-      },
-      {
-        rel: "stylesheet",
-        href: "https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&display=swap",
       },
       {
         rel: "stylesheet",
