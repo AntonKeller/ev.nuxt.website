@@ -1,167 +1,36 @@
 <template>
-  <div class="flex">
-    <div class="banner-container">
-      <div class="banner--top-content-wrapper">
-        <div class="banner--title-wrapper">
-          <h1 class="banner--title">{{ title }}</h1>
-          <h2 class="banner--subtitle">{{ subTitle }}</h2>
-          <div class="banner--button">
-            {{ buttonText }}
-            <i class="pi pi-arrow-right ml-3 text-gray-400 font-extrabold"></i>
-          </div>
-        </div>
-      </div>
+  <div class="banner-container">
 
-      <!--   LVL S   -->
-      <div class="rating-cards">
-        <Hooper
-          class="rating-card rounded-md rounded-t-xl"
-          autoPlay
-          playSpeed=5000
-          itemsToShow=1
-        >
-          <Slide
-            v-for="elem of tabloids"
-            :key="elem.id"
-          >
-            <div class="rating-card--title">{{ elem.title }}</div>
-            <div class="rating-card--subtitle">{{ elem.subtitle }}</div>
-            <div class="rating-card--description">{{ elem.text }}</div>
-          </Slide>
-          <hooper-pagination slot="hooper-addons"></hooper-pagination>
-        </Hooper>
-
-        <div class="flex flex-row space-x-2">
-
-          <Hooper
-            class="rating-card rounded-md rounded-bl-xl"
-            autoPlay
-            playSpeed=3000
-            itemsToShow=1
-            :vertical="true"
-          >
-            <Slide
-              v-for="elem of tabloids"
-              :key="elem.id"
-            >
-              <div class="rating-card--title">{{ elem.title }}</div>
-              <div class="rating-card--subtitle">{{ elem.subtitle }}</div>
-              <div class="rating-card--description">{{ elem.text }}</div>
-            </Slide>
-            <hooper-pagination slot="hooper-addons"></hooper-pagination>
-          </Hooper>
-
-          <Hooper
-            class="rating-card rounded-md rounded-r-xl"
-            autoPlay
-            playSpeed=7000
-            itemsToShow=1
-          >
-            <Slide
-              v-for="elem of tabloids"
-              :key="elem.id"
-            >
-              <div class="rating-card--title">{{ elem.title }}</div>
-              <div class="rating-card--subtitle">{{ elem.subtitle }}</div>
-              <div class="rating-card--description">{{ elem.text }}</div>
-            </Slide>
-            <hooper-pagination slot="hooper-addons"></hooper-pagination>
-          </Hooper>
-        </div>
-      </div>
+    <h1 class="banner--title">{{ title }}</h1>
+    <h2 class="banner--subtitle">{{ subTitle }}</h2>
+    <div class="banner--button">
+      {{ buttonText }}
+      <i class="pi pi-arrow-right ml-3 text-gray-300 font-extrabold"></i>
     </div>
-    <div class="banner-container-2">
-      <h1 class="lg:text-2xl text-gray-300 font-medium">
-        Lorem ipsum dolor sit.
-      </h1>
-      <p class="mt-6">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium aliquid architecto cum cumque deleniti
-        dolores ducimus eos id nulla porro, quasi quisquam tempore voluptates. Ab dolor esse perferendis perspiciatis quo
-        quod rem sit ullam voluptatum! Consequatur est, laborum nam nihil numquam perspiciatis voluptates voluptatibus
-        voluptatum. A ad animi beatae distinctio, dolore, error esse excepturi harum hic inventore iste labore libero
-        magni minus molestiae non odit officiis possimus soluta, tenetur. Cumque deleniti dignissimos quasi quia
-        reiciendis veritatis! A alias consequuntur culpa cum cumque distinctio doloremque eius esse expedita explicabo hic
-      </p>
-      <p class="mt-6">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium aliquid architecto cum cumque deleniti
-        dolores ducimus eos id nulla porro, quasi quisquam tempore voluptates. Ab dolor esse perferendis perspiciatis quo
-        quod rem sit ullam voluptatum! Consequatur est, laborum nam nihil numquam perspiciatis voluptates voluptatibus
-        voluptatum. A ad animi beatae distinctio, dolore, error esse excepturi harum hic inventore iste labore libero
-        magni minus molestiae non odit officiis possimus soluta, tenetur. Cumque deleniti dignissimos quasi quia
-        reiciendis veritatis! A alias consequuntur culpa cum cumque distinctio doloremque eius esse expedita explicabo hic
-      </p>
-      <p class="mt-6">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium aliquid architecto cum cumque deleniti
-        dolores ducimus eos id nulla porro, quasi quisquam tempore voluptates. Ab dolor esse perferendis perspiciatis quo
-        quod rem sit ullam voluptatum! Consequatur est, laborum nam nihil numquam perspiciatis voluptates voluptatibus
-        voluptatum. A ad animi beatae distinctio, dolore, error esse excepturi harum hic inventore iste labore libero
-        magni minus molestiae non odit officiis possimus soluta, tenetur. Cumque deleniti dignissimos quasi quia
-        reiciendis veritatis! A alias consequuntur culpa cum cumque distinctio doloremque eius esse expedita explicabo hic
-      </p>
-      <p class="mt-6">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium aliquid architecto cum cumque deleniti
-        dolores ducimus eos id nulla porro, quasi quisquam tempore voluptates. Ab dolor esse perferendis perspiciatis quo
-        quod rem sit ullam voluptatum! Consequatur est, laborum nam nihil numquam perspiciatis voluptates voluptatibus
-        voluptatum. A ad animi beatae distinctio, dolore, error esse excepturi harum hic inventore iste labore libero
-        magni minus molestiae non odit officiis possimus soluta, tenetur. Cumque deleniti dignissimos quasi quia
-        reiciendis veritatis! A alias consequuntur culpa cum cumque distinctio doloremque eius esse expedita explicabo hic
-      </p>
-      <p class="mt-6">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium aliquid architecto cum cumque deleniti
-        dolores ducimus eos id nulla porro, quasi quisquam tempore voluptates. Ab dolor esse perferendis perspiciatis quo
-        quod rem sit ullam voluptatum! Consequatur est, laborum nam nihil numquam perspiciatis voluptates voluptatibus
-        voluptatum. A ad animi beatae distinctio, dolore, error esse excepturi harum hic inventore iste labore libero
-        magni minus molestiae non odit officiis possimus soluta, tenetur. Cumque deleniti dignissimos quasi quia
-        reiciendis veritatis! A alias consequuntur culpa cum cumque distinctio doloremque eius esse expedita explicabo hic
-      </p>
-      <p class="mt-6">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium aliquid architecto cum cumque deleniti
-        dolores ducimus eos id nulla porro, quasi quisquam tempore voluptates. Ab dolor esse perferendis perspiciatis quo
-        quod rem sit ullam voluptatum! Consequatur est, laborum nam nihil numquam perspiciatis voluptates voluptatibus
-        voluptatum. A ad animi beatae distinctio, dolore, error esse excepturi harum hic inventore iste labore libero
-        magni minus molestiae non odit officiis possimus soluta, tenetur. Cumque deleniti dignissimos quasi quia
-        reiciendis veritatis! A alias consequuntur culpa cum cumque distinctio doloremque eius esse expedita explicabo hic
-      </p>
-      <p class="mt-6">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium aliquid architecto cum cumque deleniti
-        dolores ducimus eos id nulla porro, quasi quisquam tempore voluptates. Ab dolor esse perferendis perspiciatis quo
-        quod rem sit ullam voluptatum! Consequatur est, laborum nam nihil numquam perspiciatis voluptates voluptatibus
-        voluptatum. A ad animi beatae distinctio, dolore, error esse excepturi harum hic inventore iste labore libero
-        magni minus molestiae non odit officiis possimus soluta, tenetur. Cumque deleniti dignissimos quasi quia
-        reiciendis veritatis! A alias consequuntur culpa cum cumque distinctio doloremque eius esse expedita explicabo hic
-      </p>
-      <p class="mt-6">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium aliquid architecto cum cumque deleniti
-        dolores ducimus eos id nulla porro, quasi quisquam tempore voluptates. Ab dolor esse perferendis perspiciatis quo
-        quod rem sit ullam voluptatum! Consequatur est, laborum nam nihil numquam perspiciatis voluptates voluptatibus
-        voluptatum. A ad animi beatae distinctio, dolore, error esse excepturi harum hic inventore iste labore libero
-        magni minus molestiae non odit officiis possimus soluta, tenetur. Cumque deleniti dignissimos quasi quia
-        reiciendis veritatis! A alias consequuntur culpa cum cumque distinctio doloremque eius esse expedita explicabo hic
-      </p>
-      <p class="mt-6">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium aliquid architecto cum cumque deleniti
-        dolores ducimus eos id nulla porro, quasi quisquam tempore voluptates. Ab dolor esse perferendis perspiciatis quo
-        quod rem sit ullam voluptatum! Consequatur est, laborum nam nihil numquam perspiciatis voluptates voluptatibus
-        voluptatum. A ad animi beatae distinctio, dolore, error esse excepturi harum hic inventore iste labore libero
-        magni minus molestiae non odit officiis possimus soluta, tenetur. Cumque deleniti dignissimos quasi quia
-        reiciendis veritatis! A alias consequuntur culpa cum cumque distinctio doloremque eius esse expedita explicabo hic
-      </p>
-      <p class="mt-6">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium aliquid architecto cum cumque deleniti
-        dolores ducimus eos id nulla porro, quasi quisquam tempore voluptates. Ab dolor esse perferendis perspiciatis quo
-        quod rem sit ullam voluptatum! Consequatur est, laborum nam nihil numquam perspiciatis voluptates voluptatibus
-        voluptatum. A ad animi beatae distinctio, dolore, error esse excepturi harum hic inventore iste labore libero
-        magni minus molestiae non odit officiis possimus soluta, tenetur. Cumque deleniti dignissimos quasi quia
-        reiciendis veritatis! A alias consequuntur culpa cum cumque distinctio doloremque eius esse expedita explicabo hic
-      </p>
-      <p class="mt-6">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium aliquid architecto cum cumque deleniti
-        dolores ducimus eos id nulla porro, quasi quisquam tempore voluptates. Ab dolor esse perferendis perspiciatis quo
-        quod rem sit ullam voluptatum! Consequatur est, laborum nam nihil numquam perspiciatis voluptates voluptatibus
-        voluptatum. A ad animi beatae distinctio, dolore, error esse excepturi harum hic inventore iste labore libero
-        magni minus molestiae non odit officiis possimus soluta, tenetur. Cumque deleniti dignissimos quasi quia
-        reiciendis veritatis! A alias consequuntur culpa cum cumque distinctio doloremque eius esse expedita explicabo hic
-      </p>
+
+    <div class="card-wrapper">
+      <Hooper
+        class="rating-card"
+        autoPlay
+        playSpeed=8000
+        itemsToShow=1
+        :vertical="true"
+      >
+        <Slide
+          class="card-slide"
+          v-for="elem of tabloids"
+          :key="elem.id"
+        >
+          <div class="rating-card--title">{{ elem.title }}</div>
+          <div class="rating-card--subtitle">{{ elem.subtitle }}</div>
+          <div class="rating-card--description">{{ elem.text }}</div>
+        </Slide>
+        <hooper-pagination slot="hooper-addons"></hooper-pagination>
+      </Hooper>
+      <div class="btn-wrapper">
+        <div class="pug-btn-1"> ></div>
+        <div class="pug-btn-2"> <</div>
+      </div>
     </div>
   </div>
 </template>
@@ -213,97 +82,74 @@ export default {
 <style scoped>
 
 .banner-container {
-  @apply w-fit flex flex-col justify-evenly h-auto lg:min-h-[calc(100vh-65px)];
-  @apply pt-20 sm:py-6 px-4 sm:px-8 md:px-4 lg:py-20 lg:px-32;
+  @apply w-full flex flex-col justify-start items-start h-auto lg:min-h-[calc(100vh-65px)];
+  @apply pt-20 sm:py-6 px-4 sm:px-8 md:px-4 lg:py-20 lg:px-80;
   @apply bg-blend-multiply;
   background: rgba(103, 99, 99, 0.7) top / cover no-repeat fixed url("@/assets/background/main_page/bg-everest.jpg");
 }
 
-.banner-container-2 {
-  @apply border-l-4 border-r-8 border-gray-50 text-gray-300 h-screen w-full p-14 overflow-y-scroll;
-  @apply bg-red-800;
-  /*background-color: #6b0101;*/
-}
-
 .banner--top-content-wrapper {
-  @apply w-full flex flex-col items-center lg:flex-row lg:items-start lg:justify-between;
-}
-
-.banner--title-wrapper {
-  @apply w-full;
-  @apply flex flex-col items-start;
-}
-
-.banner--title, .banner--subtitle {
-  @apply font-extrabold text-gray-300;
+  @apply w-full flex flex-col items-start;
 }
 
 .banner--title {
-  @apply text-gray-300 text-2xl sm:text-2xl md:text-3xl lg:text-4xl;
+  @apply font-extrabold text-gray-300 text-2xl sm:text-4xl md:text-5xl lg:text-5xl;
 }
 
 .banner--subtitle {
-  @apply mt-2.5;
-  @apply text-base md:text-lg lg:text-xl;
+  @apply mt-4;
+  @apply font-extrabold text-gray-400 text-base md:text-lg lg:text-xl xl:text-3xl;
 }
 
 .banner--button {
+  @apply mt-6;
   @apply flex items-center;
   vertical-align: middle;
-  @apply text-base;
-  @apply pl-6 pr-4 py-1.5;
-  @apply mt-2.5;
-  @apply bg-gray-200 border-2 border-gray-800 rounded-lg;
+  @apply text-base md:text-lg;
+  @apply pl-6 pr-5 py-2.5;
+  @apply border-4 border-gray-900/90 rounded-lg;
+  @apply bg-red-500/70 hover:bg-red-500/60;
   @apply transition-colors duration-150;
-  @apply active:scale-[98%] hover:bg-gray-700 hover:text-gray-200 hover:border-gray-800;
+  @apply active:scale-[98%] text-gray-300;
 }
 
-.banner-slider {
-
-}
-
-.banner-slide {
-  @apply text-center lg:text-left;
-}
-
-.banner-slide--title {
-
-}
-
-.banner-slide--info {
-
-}
-
-
-.rating-cards {
-  @apply mt-6 ;
-  /*@apply space-y-3 md:space-y-0 md:space-x-0 mt-6;*/
-  /*@apply flex flex-wrap flex-col items-center md:flex-row md:justify-start md:items-start;*/
-  @apply flex flex-col space-y-2;
-  /*@apply flex flex-col gap-3 md:gap-6 lg:gap-8 xl:gap-12 items-center sm:flex-row sm:justify-between md:justify-evenly mt-5 pb-4 md:pb-6;*/
+.card-wrapper {
+  @apply flex items-stretch mt-12;
 }
 
 .rating-card {
-  @apply border-4 border-transparent lg:border-gray-800;
-  @apply w-[400px] h-[250px];
-  @apply bg-gray-200;
-  @apply p-2 md:p-2 lg:pt-6 lg:pl-8 lg:pr-6;
+  @apply w-[800px] min-h-[230px];
+  @apply bg-gray-900/70 border-2 border-gray-900/20 backdrop-blur-lg;
   @apply text-left;
 }
 
+.card-slide {
+  @apply lg:px-14 lg:py-8;
+}
+
+.btn-wrapper {
+
+}
+
+.pug-btn-1 {
+  @apply p-4 font-extralight border-2 border-gray-900/20 hover:bg-gray-500/40 select-none text-xl text-gray-300 bg-gray-900/70 backdrop-blur-md;
+}
+
+.pug-btn-2 {
+  @apply p-4 font-extralight border-2 border-gray-900/20 hover:bg-gray-500/40 select-none text-xl text-gray-300 bg-gray-900/70 backdrop-blur-md;
+}
+
 .rating-card--title {
-  @apply font-extrabold text-gray-800 text-3xl sm:text-3xl md:text-3xl lg:text-3xl xl:text-3xl;
+  @apply font-extrabold text-gray-300 text-3xl sm:text-3xl md:text-3xl lg:text-3xl xl:text-3xl;
 }
 
 .rating-card--subtitle {
-  @apply mt-2;
-  /*@apply inline pb-1.5 mt-2 border-b border-b-gray-400;*/
-  @apply font-extrabold text-red-800/90 text-lg md:text-lg lg:text-lg xl:text-lg;
+  @apply mt-2 font-extrabold text-red-500/70 text-lg md:text-lg lg:text-lg xl:text-xl;
 }
 
 .rating-card--description {
-  @apply mt-1;
-  @apply font-light text-gray-600 text-base;
+  @apply mt-1.5;
+  @apply font-light text-gray-400 text-base;
 }
 
 </style>

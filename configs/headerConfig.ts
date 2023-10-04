@@ -7,12 +7,12 @@ export const navLinks: Array<Tlink> = [
     description: "описание",
     url: "/services",
   },
-  {
-    id: 2,
-    title: "Опыт",
-    description: "наши клиенты",
-    url: "/experience",
-  },
+  // {
+  //   id: 2,
+  //   title: "Опыт",
+  //   description: "наши клиенты",
+  //   url: "/experience",
+  // },
   {
     id: 3,
     title: "Достижения",
