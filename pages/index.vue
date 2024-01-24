@@ -27,9 +27,7 @@ export default {
     evFooter,
   },
   data() {
-    return {
-
-    }
+    return ({})
   }
 }
 
