@@ -1,10 +1,12 @@
 <template>
   <div>
-
     <Hooper
+      v-for="dot of dots"
       class="tabloid"
-      :class="{hidden: !m1024}"
-      :itemsToShow="3"
+      :class="{hidden: !dot.sizeLimit}"
+      :itemsToShow="dot.items"
+      :infiniteScroll="true"
+      center-mode
       autoPlay
     >
       <Slide
@@ -24,55 +26,6 @@
 
       <hooper-pagination slot="hooper-addons"></hooper-pagination>
     </Hooper>
-
-    <Hooper
-      class="tabloid"
-      :class="{hidden: !p1024}"
-      :itemsToShow="2"
-      autoPlay
-    >
-      <Slide
-        class="w-fit"
-        v-for="elem of tabloids"
-        :key="elem.id"
-      >
-        <div class="slide-content w-fit">
-          <div class="slide-content--wrapper w-fit">
-            <div class="slide-mark">everest</div>
-            <div class="tabloid--title">{{ elem.title }}</div>
-            <div class="tabloid--subtitle">{{ elem.subtitle }}</div>
-            <div class="tabloid--description">{{ elem.text }}</div>
-          </div>
-        </div>
-      </Slide>
-
-      <hooper-pagination slot="hooper-addons"></hooper-pagination>
-    </Hooper>
-
-    <Hooper
-      class="tabloid"
-      :class="{hidden: !p640}"
-      autoPlay
-      :itemsToShow="1"
-    >
-      <Slide
-        class="w-fit"
-        v-for="elem of tabloids"
-        :key="elem.id"
-      >
-        <div class="slide-content w-fit">
-          <div class="slide-content--wrapper w-fit">
-            <div class="slide-mark">everest</div>
-            <div class="tabloid--title">{{ elem.title }}</div>
-            <div class="tabloid--subtitle">{{ elem.subtitle }}</div>
-            <div class="tabloid--description">{{ elem.text }}</div>
-          </div>
-        </div>
-      </Slide>
-
-      <hooper-pagination slot="hooper-addons"></hooper-pagination>
-    </Hooper>
-
   </div>
 </template>
 
@@ -93,6 +46,7 @@ export default {
   },
 
   data: () => ({
+    dots: [],
     p640: true,
     p1024: true,
     m1024: true,
@@ -135,10 +89,15 @@ export default {
 
     const onResize = () => {
       this.width = window.innerWidth;
-      this.p640 = window.innerWidth <= 640;
-      this.p1024 = window.innerWidth > 640 && window.innerWidth <= 1024;
-      this.m1024 = window.innerWidth > 1024;
-      console.log('this.p640:', this.p640);
+      this.dots = [
+        {sizeLimit: window.innerWidth <= 495, items: 1},
+        {sizeLimit: window.innerWidth > 495 && window.innerWidth <= 1100, items: 2},
+        {sizeLimit: window.innerWidth > 1100, items: 3}
+      ]
+      // this.p640 = window.innerWidth <= 640;
+      // this.p1024 = window.innerWidth > 640 && window.innerWidth <= 1024;
+      // this.m1024 = window.innerWidth > 1024;
+      // console.log('this.p640:', this.p640);
     };
 
     onResize();
