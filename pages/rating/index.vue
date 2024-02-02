@@ -34,7 +34,7 @@
       <Slide class="rating-button-slide" v-for="element of getRatingYears()" @click="setActiveYear(element.year)">
         <section class="ratingContainer">
           <div class="ratingElement animate-show-2" v-for="description of getInfoByYear(element.year)">
-            <div class="flex justify-center bg-gray-200 text-gray-700 items-center text-center w-16 h-16 font-extrabold text-lg md:text-xl lg:text-3xl rounded-t-sm rounded-b-3xl border-4 border-gray-600">
+            <div class="flex justify-center bg-gray-200 text-red-800 items-center text-center w-16 h-16 font-extrabold text-lg md:text-xl lg:text-2xl rounded-t-sm rounded-b-3xl border-4 border-gray-600">
               <p>{{ description.value }}</p>
             </div>
             <p>{{ description.title }}</p>

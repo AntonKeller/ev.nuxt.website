@@ -34,6 +34,27 @@
         </p>
       </div>
 
+<!--      <Hooper-->
+<!--        class="bg-gray-900"-->
+<!--        playSpeed=4000-->
+<!--        itemsToShow=1-->
+<!--        autoPlay-->
+<!--        vertical-->
+<!--        center-mode-->
+<!--      >-->
+<!--        <Slide v-for="element of experienceGroup" :key="element.id" class="bg-gray-700 h-[400px]">-->
+<!--          <img class="mx-auto w-full max-w-[14rem]"-->
+<!--               :src="require(`../../../assets/experience_logotypes/${element.img}.png`)" alt="err">-->
+<!--          <div class="flex flex-wrap justify-center gap-1 text-xs">-->
+<!--              <span-->
+<!--                class="px-2 py-0.5 rounded-xl font-medium border border-gray-700/60 bg-gray-100 backdrop-blur-sm text-gray-800"-->
+<!--                v-for="currService of element.services"-->
+<!--                :key="currService.id"-->
+<!--              >{{ currService.title }}</span>-->
+<!--          </div>-->
+<!--        </Slide>-->
+<!--      </Hooper>-->
+
       <div class="experience-box">
         <div v-for="element of experienceGroup" class="experience-element">
           <img class="mx-auto w-full max-w-[14rem]"
@@ -144,8 +165,8 @@ export default {
       @apply md:gap-3 lg:gap-2;
 
       .experience-element {
-        @apply flex flex-col justify-around border-4 border-gray-300;
-        @apply bg-gray-900 rounded-xl;
+        @apply flex flex-col justify-around border-4 border-cyan-900;
+        @apply bg-gray-800 rounded-xl;
         @apply min-h-[215px];
         @apply md:w-[34vw] lg:w-[23.5vw] xl:w-[17.5vw] xl:max-w-[280px];
 
@@ -158,7 +179,7 @@ export default {
 
           .service {
             @apply rounded-xl bg-gray-50 py-0.5 px-1.5;
-            @apply text-gray-900 text-xs md:text-sm;
+            @apply text-gray-900 text-xs;
           }
         }
       }

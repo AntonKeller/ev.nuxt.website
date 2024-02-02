@@ -34,6 +34,8 @@
 
 import {infoBannerContentCards} from "@/configs/infoBannerCarousel";
 import evTabloid from "@/components/ev-tabloid";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 export default {
 
