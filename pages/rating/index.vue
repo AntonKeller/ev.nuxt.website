@@ -49,9 +49,9 @@
 <script>
 import {rating} from "@/configs/ratingConfig.ts"
 import {Hooper, Slide} from "hooper";
-import 'hooper/dist/hooper.css';
 
 export default {
+
   name: "rating",
 
   head() {
@@ -75,10 +75,49 @@ export default {
   components: {
     Hooper,
     Slide,
+    vSlide
   },
 
   data() {
     return {
+      menu: [
+        {
+          // display menu item (can be overridden with title slot)
+          title: 'News',
+          // this element now has dropdown content
+          dropdown: 'news',
+          // don't want a button element? Pass HTMLElement or global component
+          // (pass only as a string, component must be globally accessible)
+          element: 'span', // div, router-link, nuxt-link, custom-component
+          // offset the position of the dropdown menu
+          align: 'center',
+          // menu item can accept all attributes
+          attributes: {
+            // I want more classes! No problem
+            // string, array, object, not matter
+            class: ['my-class1', { 'my-class2': true }],
+            // Custom attributes
+            'data-big': 'yes'
+          },
+          // add some events?
+          listeners: {
+            // all possible native events
+            mouseover: (evt) => {
+              console.log('news hover', evt)
+            }
+          },
+          // just extra properties in the object
+          customAttribute: true,
+        },
+        {
+          title: 'External Link',
+          attributes: {
+            href: 'https://github.com/oleksiikhr/vue-stripe-menu',
+            target: '_blank'
+          }
+        }
+        // ...
+      ],
       rating,
       activeYear: 2021,
       title: {
@@ -91,11 +130,16 @@ export default {
     }
   },
 
-  mounted() {
-    // this.activeYear = 2021;
-  },
+  mounted() {},
 
   methods: {
+
+    onOpenDropdown() {
+      console.log('onOpenDropdown')
+    },
+    onCloseDropdown() {
+      console.log('onCloseDropdown')
+    },
 
     getRatingYears() {
       return this.rating.map(el => {
@@ -122,6 +166,37 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
+// >>> CSS style <<<
+// @import 'vue-stripe-menu/css';
+
+.vsm-menu {
+  max-width: 1024px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.vsm-nav {
+  margin: 0 10px;
+}
+
+.vsm-link-container {
+  display: flex;
+  flex: 1 1 auto;
+  justify-content: center;
+}
+
+@media screen and (max-width: 768px) {
+  .vsm-mob-show {
+    display: block;
+  }
+  .vsm-mob-hide {
+    display: none;
+  }
+  .vsm-mob-full {
+    flex-grow: 1;
+  }
+}
 
 .main-container {
   @apply w-full h-fit overflow-y-scroll;

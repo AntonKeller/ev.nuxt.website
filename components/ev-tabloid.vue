@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="z-10">
     <Hooper
       v-for="dot of dots"
       class="tabloid"
@@ -8,6 +8,7 @@
       :infiniteScroll="true"
       center-mode
       autoPlay
+      playSpeed=8000
     >
       <Slide
         class="w-fit"
